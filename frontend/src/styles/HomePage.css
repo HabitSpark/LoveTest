@@ -55,7 +55,8 @@
 }
 
 .input {
-    padding: 0.75rem 1rem;
+    padding: 10px;
+    margin-right: 30px;
     border: none;
     border-radius: 1rem;
     font-size: 1rem;
