@@ -32,6 +32,10 @@ const loveTestSchema = new mongoose.Schema({
 });
 const LoveTest = mongoose.model('LoveTest', loveTestSchema);
 
+app.get('/', (req, res) => {
+  res.send('💘 LoveTest API is live and running!');
+});
+
 // Route: POST /api/love/test
 app.post('/api/love/test', async(req, res) => {
     const { yourName, partnerName } = req.body;
