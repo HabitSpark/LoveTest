@@ -18,6 +18,17 @@ if (!MONGO_URI) {
   process.exit(1);
 }
 
+// Connect to MongoDB
+mongoose.connect(MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('✅ MongoDB connected'))
+.catch((err) => {
+  console.error('❌ MongoDB connection error:', err.message);
+  process.exit(1); // Stop server if DB fails
+});
+
 
 // Mongoose schema & model
 const loveTestSchema = new mongoose.Schema({
