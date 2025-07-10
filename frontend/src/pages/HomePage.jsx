@@ -14,7 +14,7 @@ const HomePage = () => {
     e.preventDefault();
     if (!yourName || !partnerName) return alert("Please enter both names");
     try {
-      const res = await axios.post('http://localhost:5000/api/love/test', {
+      const res = await axios.post('https://lovetest-7954.onrender.com/api/love/test', {
         yourName,
         partnerName
       });
