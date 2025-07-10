@@ -12,13 +12,12 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://habitspark01:love123456@cluster0.gfi2zct.mongodb.net/';
-mongoose.connect(MONGO_URI, {
-        // useNewUrlParser: true,
-        // useUnifiedTopology: true
-    })
-    .then(() => console.log('✅ MongoDB connected'))
-    .catch((err) => console.error('MongoDB connection error:', err));
+const MONGO_URI = process.env.MONGO_URI;
+if (!MONGO_URI) {
+  console.error("❌ MONGO_URI is not defined in environment!");
+  process.exit(1);
+}
+
 
 // Mongoose schema & model
 const loveTestSchema = new mongoose.Schema({
