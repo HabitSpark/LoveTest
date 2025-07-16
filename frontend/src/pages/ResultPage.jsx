@@ -6,7 +6,13 @@ import './../styles/HomePage.css';
 const ResultPage = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const { percentage = 0, message = "You're made for each other!" } = state || {};
+
+  const {
+    percentage = 0,
+    message = "You're made for each other!",
+    yourName = "You",
+    partnerName = "Partner"
+  } = state || {};
 
   const [currentPercent, setCurrentPercent] = useState(0);
 
@@ -19,12 +25,15 @@ const ResultPage = () => {
     }, 20);
   }, [percentage]);
 
-  const rotateDeg = (currentPercent / 100) * 180; // semi-circle gauge
+  const rotateDeg = (currentPercent / 100) * 180;
 
   return (
     <div className="result-container">
       <div className="result-card">
         <h1 className="result-title">💘 Love Speedometer 💘</h1>
+
+        <h2 className="names-text">❤️ {yourName} 💞 {partnerName} ❤️</h2>
+        <p className="love-quote">"Together we shine, our hearts beat in perfect time."</p>
 
         <div className="gauge">
           <div className="needle" style={{ transform: `rotate(${rotateDeg}deg)` }}></div>
