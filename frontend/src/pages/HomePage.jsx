@@ -1,3 +1,4 @@
+// src/pages/HomePage.jsx
 import React, { useState } from 'react';
 import './../styles/HomePage.css';
 import axios from 'axios';
@@ -18,7 +19,13 @@ const HomePage = () => {
         yourName,
         partnerName
       });
-      navigate('/result', { state: res.data });
+      navigate('/result', {
+        state: {
+          ...res.data,
+          yourName,
+          partnerName
+        }
+      });
     } catch (err) {
       console.error(err);
     }
